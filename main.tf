@@ -1,15 +1,15 @@
 
 data "aws_caller_identity" "current" {}
 
-module "mod_lambda" {
-  source = "./modules/lambda"
-  var_lambdarolearn = module.mod_iam_roles.out_lambdarolearn
-  var_hostnames = var.hostnames
-  var_lambda_kms = module.mod_kms.out_lambda_kms
-  env = var.env
-  var_lambda_function_name = var.lambda_function_name
-  var_region = var.var_region
-}
+# module "mod_lambda" {
+#   source = "./modules/lambda"
+#   var_lambdarolearn = module.mod_iam_roles.out_lambdarolearn
+#   var_hostnames = var.hostnames
+#   var_lambda_kms = module.mod_kms.out_lambda_kms
+#   env = var.env
+#   var_lambda_function_name = var.lambda_function_name
+#   var_region = var.var_region
+# }
 
 module "mod_cloudfront" {
   source  = "./modules/cloudfront"
