@@ -1,0 +1,49 @@
+const debug = require('@tryghost/debug')('web:parent');
+const config = require('../../../shared/config');
+const express = require('../../../shared/express');
+const compress = require('compression');
+const mw = require('./middleware');
+const vhost = require('@tryghost/vhost-middleware');
+
+/**
+ * @param {Object} options
+ * @param {Boolean} [options.start]
+ * @param {Boolean} [options.backend]
+ * @param {Boolean} [options.frontend]
+ */
+module.exports = function setupParentApp({start, frontend = true, backend = true}) {
+    debug('ParentApp setup start');
+    const parentApp = express('parent');
+
+    parentApp.use(mw.requestId);
+    parentApp.use(mw.logRequest);
+
+    // Register event emmiter on req/res to trigger cache invalidation webhook event
+    parentApp.use(mw.emitEvents);
+
+    // enabled gzip compression by default
+    if (config.get('compress') !== false) {
+        parentApp.use(compress());
+    }
+
+    // This sets global res.locals which are needed everywhere
+    // @TODO: figure out if this is really needed everywhere? Is it not frontend only...
+    parentApp.use(mw.ghostLocals);
+
+    // Mount the express apps on the parentApp
+
+    if (backend) {
+        debug('Mounting bakcend: ADMIN + API');
+        const backendApp = require('./backend')();
+        parentApp.use(vhost(config.getBackendMountPath(), backendApp));
+    }
+
+    if (frontend) {
+        debug('Mounting frontend: SITE + MEMBERS');
+        const frontendApp = require('./frontend')({start});
+        parentApp.use(vhost(config.getFrontendMountPath(), frontendApp));
+    }
+    debug('ParentApp setup end');
+
+    return parentApp;
+};

@@ -1,0 +1,623 @@
+/* Product list */
+.gh-product-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 32px;
+}
+
+@media (max-width: 980px) {
+    .gh-product-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.gh-product-cards {
+    margin: 0 0 24px;
+}
+
+.gh-product-card {
+    position:relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+@media (max-width: 980px) {
+    .gh-product-card {
+        padding: 4vmin 48px;
+    }
+}
+
+.gh-product-card-editbutton {
+    position: absolute;
+    right: 24px;
+    top: 16px;
+}
+
+.gh-product-card-block {
+    flex-basis: 50%;
+}
+
+.gh-product-card-block:not(:first-of-type) {
+    padding-left: 16px;
+}
+
+.gh-product-card-block h4 {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.gh-product-card-block h4 .counter {
+    font-weight: 400;
+    color: var(--midgrey);
+}
+
+.gh-product-card-name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.gh-product-card-description {
+    font-size: 1.3rem;
+    line-height: 1.45em;
+    margin: 4px 20px 4px 0;
+    color: var(--midgrey);
+}
+
+.gh-product-card-block.benefits-block .gh-product-card-description {
+    margin-top: 9px;
+}
+
+.gh-product-card-block ul.benefits {
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 0;
+}
+
+.gh-product-card-block ul.benefits li {
+    display: flex;
+    align-items: flex-start;
+    font-size: 1.3rem;
+    line-height: 1.45em;
+    color: var(--middarkgrey);
+}
+
+.gh-product-card-block ul.benefits li svg {
+    flex-basis: 18px;
+    width: 14px;
+    height: 14px;
+    min-width: 18px;
+    margin-top: 3px;
+    margin-right: 4px;
+    color: var(--black);
+}
+
+.gh-product-card-block ul.benefits li span {
+    flex-grow: 1;
+}
+
+.gh-product-price-container {
+    display: flex;
+    margin: 0 40px 0 20px;
+}
+
+.gh-product-card-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 12px 2px 0;
+    font-size: 1.3rem;
+    color: var(--midgrey);
+    padding: 12px 8px;
+    border: 1px solid var(--whitegrey);
+    border-radius: 3px;
+    min-width: 90px;
+}
+
+.gh-product-card-price .currency-symbol,
+.gh-product-card-price .amount,
+.gh-product-card-price .currency {
+    font-weight: 600;
+    color: var(--darkgrey);
+}
+
+.gh-product-card-price .currency-symbol {
+    margin-top: -3px;
+}
+
+.gh-product-card-price .amount {
+    font-size: 2.1rem;
+    letter-spacing: -0.2px;
+    line-height: 1;
+    margin-right: 2px;
+}
+
+.gh-product-card-price .currency {
+    font-size: 1.25rem;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+}
+
+.gh-product-card-price .period {
+    font-size: 1.25rem;
+    text-transform: lowercase;
+    line-height: 1.2em;
+}
+
+.gh-product-cards-footer {
+    display: flex;
+    align-items: center;
+    margin-top: -7px;
+    color: var(--midgrey);
+    font-size: 1.35rem;
+}
+
+.gh-btn-add-product,
+.gh-btn-add-product:hover {
+    margin-right: 5px;
+}
+
+.gh-btn-add-product svg {
+    margin-right: 2px;
+}
+
+.gh-product-list-icon {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: var(--green);
+    margin-bottom: 8px;
+    height: 72px;
+}
+
+.gh-product-list-icon svg {
+    width: 60px;
+    height: 60px;
+}
+
+.gh-product-list-siteicon {
+    width: 54px;
+    height: 54px;
+    background-color: transparent;
+    background-size: 54px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+}
+
+.gh-product-list-icon svg circle,
+.gh-product-list-icon svg path {
+    stroke-width: 1px !important;
+}
+
+/* Product details */
+.gh-product-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 32px;
+    margin-bottom: 3vw;
+}
+
+.gh-product-details-form {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 20px !important;
+}
+
+.gh-product-icon-container {
+    width: unset;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.gh-product-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    width: 124px;
+    height: 124px;
+    margin-right: 24px;
+    border: 1px solid var(--whitegrey);
+    border-radius: 3px;
+}
+
+.gh-product-details-fields {
+    width: 100%;
+}
+
+.gh-product-details-fields .max-width {
+    max-width: 840px;
+}
+
+.gh-product-details-fields .form-group:last-of-type {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.gh-product-details section {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+/* Product stats */
+.gh-product-stat-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.gh-product-stat-details .data {
+    white-space: nowrap;
+    font-size: 3.1rem;
+    line-height: 1em;
+    font-weight: 700;
+    letter-spacing: 0;
+    margin: 0 0 2px;
+    padding: 0;
+}
+
+.gh-product-stat-details .info {
+    color: var(--midgrey);
+    margin: 0 0 10px;
+    padding: 0;
+}
+
+.gh-product-chart {
+    color: var(--whitegrey);
+    border: 1px solid var(--whitegrey);
+    border-top-color: transparent;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 12px;
+}
+
+/* Price list */
+.gh-price-list {
+    margin-bottom: 24px;
+}
+
+.gh-price-list a span {
+    color: var(--midgrey);
+    font-size: 1.3rem;
+}
+
+.gh-price-list-actionlist {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    line-height: 1;
+}
+
+.gh-price-list .gh-list-row:hover .gh-price-list-actionlist {
+    opacity: 1;
+}
+
+.gh-price-list-actionlist a,
+.gh-price-list-actionlist button {
+    margin-left: 15px;
+    padding: 0;
+    line-height: 0;
+}
+
+.gh-price-list-actionlist a span,
+.gh-price-list-actionlist button span {
+    display: inline-block;
+    line-height: 1;
+    height: unset;
+    border-radius: 3px;
+    padding: 4px 6px;
+    color: var(--darkgrey);
+    font-weight: 500;
+    font-size: 1.2rem !important;
+    text-transform: uppercase;
+}
+
+.gh-price-list-actionlist a:hover span,
+.gh-price-list-actionlist button:hover span {
+    background: var(--whitegrey);
+}
+
+.gh-price-list-actionlist a.archived:hover span,
+.gh-price-list-actionlist button.archived:hover span {
+    background: color-mod(var(--red) a(10%));
+    color: var(--red);
+}
+
+.gh-price-list-title,
+.gh-price-list-price {
+    width: 50%;
+}
+
+.gh-price-list-name span.archived {
+    background: var(--lightgrey-l2);
+    color: var(--midgrey);
+    font-size: 1.2rem;
+}
+
+.gh-price-list-archived .gh-price-list-name .name,
+.gh-price-list-archived .gh-price-list-description,
+.gh-price-list-archived .gh-price-list-price span,
+.gh-price-list-archived .gh-price-list-subscriptions span {
+    opacity: 0.5;
+}
+
+.gh-price-list-noprices {
+    text-align: center;
+    padding: 48px 0;
+    color: var(--midgrey);
+}
+
+.gh-btn-archive-toggle {
+    width: 80px;
+}
+
+.product-actions-menu.fade-out {
+    animation-duration: 0.01s;
+    pointer-events: none;
+}
+
+/* Add/edit product modal */
+.fullscreen-modal-edit-product {
+    max-width: 900px;
+}
+
+.gh-product-modal-content {
+    margin: -32px -32px 0;
+    padding: 32px 32px 0;
+    max-height: calc(100vh - 16vw);
+    overflow-y: auto;
+}
+
+.gh-form-edit-product .gh-main-section {
+    margin-bottom: 32px;
+    grid-template-columns: 1fr 0.9fr 1.1fr;
+}
+
+.gh-form-edit-product .gh-main-section-block {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+
+.gh-form-edit-product .gh-main-section-content {
+    padding-top: 16px;
+    margin-bottom: 0;
+}
+
+.gh-product-priceform-block {
+    margin-bottom: 32px;
+}
+
+.gh-product-priceform-block .form-group:last-of-type {
+    margin-bottom: 0;
+}
+
+.gh-product-priceform-pricecurrency {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+}
+
+.gh-form-edit-product .gh-main-section-content.gh-product-form-benefits {
+    padding-left: 8px;
+    margin-bottom: 0;
+}
+
+.gh-product-benefits .gh-input {
+    padding: 6px 28px 6px 30px;
+}
+
+.gh-product-benefits .gh-blognav-line {
+    position: relative;
+}
+
+.gh-product-benefits .gh-blognav-line svg {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 13px;
+    left: 11px;
+}
+
+.gh-product-benefits .gh-blognav-line.placeholder {
+    color: var(--midlightgrey);
+}
+
+.gh-product-benefits .gh-blognav-line svg path {
+    stroke-width: 3px;
+}
+
+.gh-product-benefits .gh-blognav-item {
+    position: relative;
+    align-items: center;
+}
+
+.gh-product-benefits .gh-blognav-label {
+    margin-right: 0;
+}
+
+.gh-product-benefits .gh-blognav-label .response {
+    position: relative;
+    font-size: 1.25rem;
+    margin: 2px 0 6px;
+}
+
+.gh-product-benefits .gh-blognav-delete {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    opacity: 0;
+}
+
+.gh-product-benefits .gh-blognav-add {
+    margin-top: 2px;
+}
+
+.gh-product-benefits .gh-blognav-grab {
+    text-indent: 0px;
+    opacity: 0;
+}
+
+.gh-product-benefits .gh-blognav-item:hover .gh-blognav-delete,
+.gh-product-benefits .gh-blognav-item:hover .gh-blognav-grab {
+    opacity: 1;
+}
+
+.gh-product-benefits .gh-blognav-item:not(.gh-blognav-item--sortable):not(:last-of-type) {
+    margin-bottom: 16px;
+}
+
+.gh-product-benefit-hint {
+    color: var(--midgrey-d2);
+    font-size: 1.25rem !important;
+    font-weight: 400;
+    padding: 0 16px;
+    margin-top: -12px;
+}
+
+.gh-product-form-tierpreview-content {
+    position: sticky;
+    top: 45px;
+    height: max-content;
+}
+
+.gh-product-form-tierpreview .gh-main-section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border: 2px solid var(--blackgrey);
+    border-radius: 4px;
+    padding: 24px;
+}
+
+.gh-product-form-tierpreview .gh-main-section-content .checkmark {
+    position: relative;
+    background-color: var(--blackgrey);
+    border-radius: 999px;
+    height: 18px;
+    width: 18px;
+}
+
+.gh-product-form-tierpreview .gh-main-section-content .checkmark::after {
+    display: block;
+    position: absolute;
+    content: "";
+    left: 6.5px;
+    top: 2.5px;
+    width: 5px;
+    height: 11px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.gh-product-form-tierpreview .gh-main-section-content h4 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.45em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 7px;
+    text-align: center;
+    min-height: 24px;
+    word-break: break-word;
+    color: #333;
+}
+
+.gh-product-form-tierpreview .gh-main-section-content p {
+    font-size: 1.35rem;
+    font-weight: 500;
+    line-height: 1.45em;
+    text-align: center;
+    color: #474747;
+    padding: 16px 0;
+    margin: 8px 0 20px;
+    width: 100%;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.gh-product-form-tierpreview .price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gh-product-form-tierpreview .monthly-price {
+    display: flex;
+    align-items: baseline;
+    font-size: 3.3rem;
+    font-weight: 500;
+    line-height: 1em;
+    color: #3d3d3d;
+}
+
+.gh-product-form-tierpreview .monthly-price .period {
+    font-size: 1.3rem;
+    line-height: 1.6em;
+    color: #515151;
+    letter-spacing: 0.3px;
+    margin-left: 2px;
+}
+
+.gh-product-form-tierpreview .yearly-price {
+    font-size: 1.2rem;
+    line-height: 1.6em;
+    color: #aeaeae;
+    text-align: center;
+    margin-top: 4px;
+    letter-spacing: 0.3px;
+    height: 18px;
+    margin-top: -1px;
+}
+
+.gh-product-form-tierpreview .currency {
+    text-transform: uppercase;
+}
+
+.gh-product-form-tierpreview .monthly-price .currency {
+    align-self: flex-start;
+    font-size: 2.0rem;
+    font-weight: 500;
+    line-height: 1.3em;
+}
+
+.gh-product-form-tierpreview ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100px;
+    margin-bottom: 12px;
+}
+
+.gh-product-form-tierpreview li {
+    display: flex;
+    align-items: flex-start;
+    font-size: 1.3rem;
+    line-height: 1.45em;
+    color: #686868;
+    margin: 0 0 12px;
+    padding: 0;
+}
+
+.gh-product-form-tierpreview li svg {
+    width: 13px;
+    height: 13px;
+    min-width: 12px;
+    margin: 3px 6px 0 0;
+    overflow: visible;
+}
+
+.gh-product-form-tierpreview li svg path {
+    stroke-width: 3px;
+}
+
+.gh-product-form-tierpreview .placeholder {
+    opacity: 0.35;
+}
